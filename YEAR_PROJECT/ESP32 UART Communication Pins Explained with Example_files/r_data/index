@@ -1,0 +1,9 @@
+Adform=window.Adform||{};
+Adform.host="https://track.adform.net";
+Adform.shost="https://s1.adform.net";
+Adform.scriptBase=Adform.shost+"/banners/scripts/";
+Adform.cache="626";
+Adform.ADFBannerData={"URL":"https://track.adform.net/adfserve/?CC=1&bn=52759918;rtbpid=3;rtbinv=${INV_SRC};rtbwp=0.046615-b9zELUfouTXcKMAjxHjWE_p1PGR0Mngl0;rtbr=19845501339578296_1;rtbcid=${ENC_CID};rtbtpc=${ENC_TPC};rtburl=https%3A%2F%2Fmicrocontrollerslab.com%2Fesp32-uart-communication-pins-example%2F;rtbcat=${IAB_CATS};rtbdp=${DATA_PROV};rtbdt=${DATA_TYPE};rtbdc=${DATA_FEE_ENC};rtbplc=${ENC_PLC};rtbrmc=${ENC_RMC};rtbdata=exjhwVc02uTY3SNsmFLvW56Puxh4VQyawoD5duRziu3eg7xf0xqjNLXPXNX1ntOrN2cB0kZTOE8KSrnG79KcHmJ9ZVv79i5NhBvivwrXb5JP5B8EY0FkkVVdEz2jzIWhhcP7Teebz-DAIXF00s8QZnyCNPXY5udFp0dwZuhJ5eDBhi-On7fklEgq8A0ARF_pqo1i17QaoQhc2RSMGIbWPSgi-Gt2hGjK_nAWKpn07LXNKenrXdE_t-1tgMlzXJPfADLIJcRXVTc2_9dfcJuL7_1BDHKiqtvIL8H9WNltdytFRpQYPI3cYQC1y730sOqZhLi54b2pyJ-IpNMcgwDrlNF_JQWKjBBQnYkd8Rd5mQ7mEsXjzXzn8DX9W58HkvSFHD1WmWczB0Jh4-PM4xt7tyF08AbpnSGRqjXNrMDjPuzVKMV24NgfMOgiv96k-ww76ML7v5pAsjKQczMFuOMDeGXwuSEPJ-zImktMWky7Jur7xAKDHpMjv7lrxV186OBufs7i8PE8zfUpG_hOu0rP_CQ4SAC2g_3xZaHMKU2N-XKP6_G0j1Nl18cZithjVCx-VMXhtkx7b5rrHYw6GDwqdCmv-usy-J__6scR0ML83NwT3suRgdcu4re1IK4i4Ikn9-7fCjRLIixNu-nKJmJ2yMq9a0HxyOJ0-NRQuhzV-PJJzH94VB7sTiJDTvHjp-PR8wy3Pj_R-b3f1ajuB48JHc33CXkiWttdaDdFwIJcAk2MLrhis3ByQyytCu2lSqT70AjsaNJnKcW2SGRV2x4oxquQBp7VZFGRAKZXxRFW440GDgMMW97x6wZK_B1g7pe-YnZDPlWQOrhKecQDqk97VW3obztadr-bn7hLRNoRfgHvlkMQMhtrTt2WMlNUjkPdQeEimShqzcc1;rtbtest=0","CREFURL":"https%3a%2f%2fassets.vlitag.com%2f","BN":52759918,"READ_CONSENT":false};
+if(!Adform.ADFBannerParams)Adform.ADFBannerParams=[];
+Adform.ADFBannerParams.push(Adform.ADFBannerData);
+typeof Adform.ADFUtilInstance=="undefined"?document.write('<scr'+'ipt type="text/javascript" src="https://s1.adform.net/stoat/626/s1.adform.net/bootstrap.js"></scr'+'ipt>'):new Adform.ADFBanner();

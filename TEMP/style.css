@@ -1,0 +1,198 @@
+/*@import 'https://fonts.googleapis.com/css?family=Nova+Mono|Eczar';*/
+body {
+  background-color: #263238;
+}
+
+.bg-color.bluegray {
+  background-color: #607d8b;
+}
+
+.bg-color.yellow {
+  background-color: #f57f17;
+}
+
+.bg-color.lime {
+  background-color: #f4ff81;
+}
+
+.bg-color.black {
+    background-color: #263238;
+}
+
+.bg-color.red {
+    background-color: #d93545;
+}
+
+.stage-color-red {
+  color: rgba(213,0,0,1) !important;
+}
+
+.stage-color-green {
+  color: rgba(0,160,64,1) !important;
+}
+
+.color.white {
+  color: #efefef;
+}
+
+.color.amber {
+  color: #ffab00;
+}
+
+.color.red {
+  color: #d93545;
+}
+
+.color.lime {
+  color: #f4ff81;
+}
+
+.ls-25 {
+  letter-spacing: 25px;
+}
+
+#time {
+  font-family: 'Nova Mono', monospace;
+  font-size: 8vw;
+  text-align: center;
+  text-shadow: 0px 0px 20px;
+}
+
+.w-10 {
+  width:   10% !important;
+}
+
+.mw-50 {
+  max-width: 50px;
+}
+
+.h-80 {
+  height: 80px;
+}
+
+.h-150 {
+  height: 150px;
+}
+
+.h-15 {
+  height: 15px;
+}
+
+.icon-sq {
+  width: 75px;
+  height: 75px;
+}
+
+table#table_bomb td:hover {
+    background-color: rgba(213,0,0,.2);
+}
+
+.green:hover {
+    background-color: rgba(0,77,64,.7) !important;
+}
+
+.border.border-gold {
+  border: 1px solid #827717 !important;
+}
+
+.highlight-spot
+{
+    position: absolute;
+
+    display: block;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+    background-color: crimson;
+}
+.highlight-spot:hover
+{
+    cursor: pointer;
+}
+.highlight-spot:after
+{
+    position: absolute;
+    top: -10px;
+    left: -10px;
+
+    width: 30px;
+    height: 30px;
+
+    content: '';
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite;
+
+    opacity: .0;
+    border: 3px solid crimson;
+    -webkit-border-radius: 30px;
+}
+
+.top
+{
+    top: 0;
+}
+.left
+{
+    left: 0;
+}
+.right
+{
+    right: 0;
+}
+.bottom
+{
+    bottom: 0;
+}
+.center-y{
+    top: 50%;
+    transform: translateY(-50%);
+}
+.center-x{
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+@-webkit-keyframes pulsate
+{
+    0%
+    {
+        -webkit-transform: scale(.1, .1); opacity: .0;
+    }
+    50%
+    {
+        opacity: .5;
+    }
+    100%
+    {
+        -webkit-transform: scale(1.2, 1.2); opacity: .0;
+    }
+}
+
+.torch1-xy {
+  left: 65%;
+  top: 15%;
+}
+
+.torch2-xy {
+  left: 22%;
+  top: 31%;
+}
+
+.torch3-xy {
+  left: 68%;
+  bottom: 43%;
+}
+
+.torch4-xy {
+  left: 22%;
+  bottom: 31%;
+}
+
+.center-block {
+    display: table;  /* Instead of display:block */
+    margin-left: auto;
+    margin-right: auto;
+}

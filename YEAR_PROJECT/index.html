@@ -1,0 +1,81 @@
+<!DOCTYPE HTML><html>
+<head>
+  <title>ESP Web Server</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="icon" href="data:,">
+  <style>
+    html {font-family: Arial; display: inline-block; text-align: center;}
+    p { font-size: 1.2rem;}
+    body {  margin: 0;height: 100%; background-color: black;}
+    .topnav { overflow: hidden; background-color: #000; color: #E11616; font-size: 1rem; }
+    .content { padding: 20px; border: 1px solid #E11616;} //#2cc12e GREEN  #2616E1 blue
+    .card { background-color: white; box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5); }
+    .cards { max-width: 900px; margin: 0 auto; display: grid; grid-gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .reading { font-size: 1.4rem; }
+  </style>
+</head>
+<body>
+  <div class="topnav">
+    <h1>7 SEGMENT</h1>
+  </div>
+  <div class="content">
+    <div class="cards">
+      <img id="segment1" src="zero.png" width="200" height="300" alt="">
+      <img id="segment2" src="zero.png" width="200" height="300" alt="">
+      <img id="segment3" src="zero.png" width="200" height="300" alt="">
+      <img id="segment4" src="zero.png" width="200" height="300" alt="">
+    </div>
+  </div>
+<script>
+if (!!window.EventSource) {
+ var source = new EventSource('/events');
+
+ source.addEventListener('open', function(e) {
+  console.log("Events Connected");
+ }, false);
+ source.addEventListener('error', function(e) {
+  if (e.target.readyState != EventSource.OPEN) {
+    console.log("Events Disconnected");
+  }
+ }, false);
+
+ source.addEventListener('message', function(e) {
+  console.log("message", e.data);
+ }, false);
+
+ for (var i = 0; i < 4; i++) {
+   source.addEventListener('http://172.20.10.5/' + 'segment' + i, function(e) {
+    console.log("segment 1: ", e.data);
+    ls = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+    for (var i = 0; i < ls.length; i++) {
+      if (e.data == i) {
+        document.getElementById("segment" + i).src=ls[i] + ".png";
+        break;
+      }
+    }
+
+  }, false);
+ }
+
+ source.addEventListener('mode', function(e) {
+  console.log("mode: ", e.data);
+  switch (e.data) {
+    case 0:
+      document.getElementById('content').style.border = "1px solid #E11616;";
+      break;
+      case 1:
+        document.getElementById('content').style.border = "1px solid #2cc12e;";
+        break;
+        case 2:
+          document.getElementById('content').style.border = "1px solid #2616E1;";
+          break;
+    default: document.getElementById('content').style.border = "1px solid #E11616;";
+
+  }
+ }, false);
+
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js" charset="utf-8"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <title>D O T S A O U T</title>
+  </head>
+  <body>
+    <div class="container">
+      <ul class="nav nav-tabs justify-content-center nav-fill my-2" role="tablist">
+        <li role="presentation" class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-tardis" role="tab" aria-controls="tab-tardis" aria-selected="true">Tardis</button></li>
+        <li role="presentation" class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-bomb" role="tab" aria-controls="tab-bomb" aria-selected="false">Bomb</button></li>
+        <li role="presentation" class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-felero" role="tab" aria-controls="tab-felero" aria-selected="false">Felero</button></li>
+<!--
+        <li role="presentation" class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-door" role="tab" aria-controls="tab-door" aria-selected="false">Door</button></li>
+-->
+        <li role="presentation" class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-skill" role="tab" aria-controls="tab-skill" aria-selected="false">Skill</button></li>
+        <li role="presentation" class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-davinci" role="tab" aria-controls="tab-davinci" aria-selected="false">MediaPlayer</button></li>
+        <li role="presentation" class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-setting" role="tab" aria-controls="tab-setting" aria-selected="false">Setting</button></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="tab-tardis" role="tabpanel" aria-labelledby="nav-tardis-tab" tabindex="0">
+          <div class="card my-3 shadow bg-color yellow w-50 mx-auto color white">
+            <div class="card-body shadow">
+              <h1 id="year_lbl" class="text-center ls-25" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="TARDIS YEAR">1900</h1>
+            </div>
+          </div>
+          <div class="card bg-color black shadow color white my-3">
+            <div class="row">
+              <div class="col text-center my-auto">
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                  <button type="button" class="btn btn-outline-danger" onclick="minDec(1)">1</button>
+                  <button type="button" class="btn btn-outline-danger" onclick="minDec(2)">2</button>
+                  <button type="button" class="btn btn-outline-danger" onclick="minDec(3)">3</button>
+                  <button type="button" class="btn btn-outline-danger" onclick="minDec(4)">4</button>
+                  <button type="button" class="btn btn-outline-danger" onclick="minDec(5)">5</button>
+                </div>
+              </div>
+              <div class="col my-auto">
+                <p id="time" data-bs-toggle="modal" data-bs-target="#timerSetting">
+                  <span><i id="minute_lbl">00</i>:<i id="second_lbl">00</i></span>
+                </p>
+              </div>
+              <div class="col text-center my-auto">
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                  <button type="button" class="btn btn-outline-success" onclick="minInc(1)">1</button>
+                  <button type="button" class="btn btn-outline-success" onclick="minInc(2)">2</button>
+                  <button type="button" class="btn btn-outline-success" onclick="minInc(3)">3</button>
+                  <button type="button" class="btn btn-outline-success" onclick="minInc(4)">4</button>
+                  <button type="button" class="btn btn-outline-success" onclick="minInc(5)">5</button>
+                </div>
+              </div>
+            </div>
+            <div class="row my-2">
+              <div class="col text-center">
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                  <button type="button" class="btn btn-outline-light" onclick="timer_start()">S T A R T</button>
+                  <button type="button" class="btn btn-outline-light" onclick="timer_stop()">S T O P</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card my-3 shadow bg-color border-warning black w-75 mx-auto color white">
+            <div class="card-body shadow">
+              <div class="row">
+                <div class="col-md text-center">
+                  <button type="button" class="btn btn-outline-secondary">+3 MIN</button>
+                </div>
+                <div class="col-md text-center">
+                  <button type="button" class="btn btn-outline-secondary">+3 MIN</button>
+                </div>
+                <div class="col-md text-center">
+                  <button type="button" class="btn btn-outline-secondary">+3 MIN</button>
+                </div>
+                <div class="col-md text-center">
+                  <button type="button" class="btn btn-outline-secondary">+3 MIN</button>
+                </div>
+                <div class="col-md text-center">
+                  <button type="button" class="btn btn-outline-secondary">+5 MIN</button>
+                </div>
+                <div class="col-md text-center">
+                  <button type="button" class="btn btn-outline-secondary">+5 MIN</button>
+                </div>
+                <div class="col-md text-center">
+                  <button type="button" class="btn btn-outline-secondary">+5 MIN</button>
+                </div>
+                <div class="col-md text-center">
+                  <button type="button" class="btn btn-outline-secondary">+5 MIN</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md">
+              <div class="card bg-color black shadow color white my-3">
+                <div class="row">
+                  <div class="col text-center my-auto">
+                    <label id="energy_lbl"></label>
+                  </div>
+                  <div class="col text-center my-auto">
+                    <label id="gravity_lbl"></label>
+                  </div>
+                  <div class="col text-center my-auto">
+                    <label id="speed_lbl"></label>
+                  </div>
+                  <div class="col text-center my-auto">
+                    <label id="accel_lbl"></label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col text-center my-auto">
+                    <div id="energyBtns" class="btn-group-vertical my-2" role="group" aria-label="Vertical button group">
+                      <button type="button" class="btn btn-outline-danger"></button>
+                      <button type="button" class="btn btn-outline-danger"></button>
+                      <button type="button" class="btn btn-outline-danger"></button>
+                      <button type="button" class="btn btn-outline-danger"></button>
+                      <button type="button" class="btn btn-outline-warning"></button>
+                      <button type="button" class="btn btn-outline-warning"></button>
+                      <button type="button" class="btn btn-outline-warning"></button>
+                      <button type="button" class="btn btn-outline-success"></button>
+                      <button type="button" class="btn btn-outline-success"></button>
+                      <button type="button" class="btn btn-outline-success"></button>
+                    </div>
+                  </div>
+                  <div class="col text-center my-auto">
+                    <div class="col text-center my-auto">
+                      <div id="gravityBtns" class="btn-group-vertical my-2" role="group" aria-label="Vertical button group">
+                        <button type="button" class="btn btn-outline-danger"></button>
+                        <button type="button" class="btn btn-outline-danger"></button>
+                        <button type="button" class="btn btn-outline-danger"></button>
+                        <button type="button" class="btn btn-outline-danger"></button>
+                        <button type="button" class="btn btn-outline-warning"></button>
+                        <button type="button" class="btn btn-outline-warning"></button>
+                        <button type="button" class="btn btn-outline-warning"></button>
+                        <button type="button" class="btn btn-outline-success"></button>
+                        <button type="button" class="btn btn-outline-success"></button>
+                        <button type="button" class="btn btn-outline-success"></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col my-auto">
+                    <div class="col text-center my-auto">
+                      <div id="speedBtns" class="btn-group-vertical my-2" role="group" aria-label="Vertical button group">
+                        <button type="button" class="btn btn-outline-danger"></button>
+                        <button type="button" class="btn btn-outline-danger"></button>
+                        <button type="button" class="btn btn-outline-danger"></button>
+                        <button type="button" class="btn btn-outline-danger"></button>
+                        <button type="button" class="btn btn-outline-warning"></button>
+                        <button type="button" class="btn btn-outline-warning"></button>
+                        <button type="button" class="btn btn-outline-warning"></button>
+                        <button type="button" class="btn btn-outline-success"></button>
+                        <button type="button" class="btn btn-outline-success"></button>
+                        <button type="button" class="btn btn-outline-success"></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col text-center my-auto">
+                    <div class="col text-center my-auto">
+                      <div id="accelBtns"  class="btn-group-vertical my-2" id="energy" role="group" aria-label="Vertical button group">
+                        <button type="button" class="btn btn-outline-danger"></button>
+                        <button type="button" class="btn btn-outline-danger"></button>
+                        <button type="button" class="btn btn-outline-danger"></button>
+                        <button type="button" class="btn btn-outline-danger"></button>
+                        <button type="button" class="btn btn-outline-warning"></button>
+                        <button type="button" class="btn btn-outline-warning"></button>
+                        <button type="button" class="btn btn-outline-warning"></button>
+                        <button type="button" class="btn btn-outline-success"></button>
+                        <button type="button" class="btn btn-outline-success"></button>
+                        <button type="button" class="btn btn-outline-success"></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row my-2">
+                  <div class="col text-center">
+                    <figure class="figure">
+                      <img src="icon/energy.png" class="figure-img img-fluid rounded-circle w-25">
+                    </figure>
+                  </div>
+                  <div class="col text-center">
+                    <figure class="figure">
+                      <img src="icon/gravity.png" class="figure-img img-fluid rounded-circle w-25">
+                    </figure>
+                  </div>
+                  <div class="col text-center">
+                    <figure class="figure">
+                      <img src="icon/speed.png" class="figure-img img-fluid rounded-circle w-25">
+                    </figure>
+                  </div>
+                  <div class="col text-center">
+                    <figure class="figure">
+                      <img src="icon/accel.png" class="figure-img img-fluid rounded-circle w-25">
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card bg-color black shadow color white my-3">
+                <div id="robotFace" class="row p-3">
+                  <div class="col text-center my-auto">
+                    <img src="icons/emoji-angry.svg" mode="1" state="off" class="w-50">
+                  </div>
+                  <div class="col text-center my-auto">
+                    <img src="icons/emoji-smile.svg" mode="2"  state="off" class="w-50">
+                  </div>
+                  <div class="col text-center my-auto">
+                    <img src="icons/emoji-wink.svg" mode="3"  state="off" class="w-50">
+                  </div>
+                  <div class="col text-center my-auto">
+                    <img src="icons/emoji-neutral.svg" mode="4"  state="off" class="w-50">
+                  </div>
+                  <div class="col text-center my-auto">
+                    <img src="icons/emoji-frown.svg" mode="5"  state="off" class="w-50">
+                  </div>
+                  <div class="col text-center my-auto">
+                    <img src="icons/emoji-dizzy.svg" mode="6"  state="off" class="w-50">
+                  </div>
+                  <div class="col text-center my-auto">
+                    <img src="icons/emoji-laughing.svg" mode="7"  state="off" class="w-50">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col text-center p-3">
+                    <button type="button" class="btn btn-outline-light w-50" id="auto_face" onclick="robotMove(this)" mode="8" state="off">AUTO</button>
+                  </div>
+                  <div class="row p-4">
+                    <div class="col text-center text-primary">
+                      <button type="button" id="lunchBtn" class="btn btn-outline-primary w-75">LUNCH</button>
+                    </div>
+                    <div class="col text-center text-danger">
+                      <button type="button" class="btn btn-outline-danger w-75">EXIT</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="tab-felero" role="tabpanel" aria-labelledby="pills-felero-tab" tabindex="0">
+          <div class="row h-150 py-5">
+            <div class="col-lg position-relative text-center" id="feleroTorchSpot">
+              <span class="highlight-spot torch1-xy" state="off" name="torch1" data-toggle="popover" data-content="This is a hotspot added to an image"></span>
+              <span class="highlight-spot torch2-xy" state="off" name="torch2" data-toggle="popover" data-content="This is a hotspot added to an image"></span>
+              <span class="highlight-spot torch3-xy" state="off" name="torch3" data-toggle="popover" data-content="This is a hotspot added to an image"></span>
+              <span class="highlight-spot torch4-xy" state="off" name="torch4" data-toggle="popover" data-content="This is a hotspot added to an image"></span>
+              <!-- TODO: Add Safe Zone to map -->
+              <img src="img/mapFelero.png" class="img-fluid rounded shadow" alt="mapFelero">
+            </div>
+          </div>
+          <!--
+          <div class="row h-150 py-3">
+            <div class="col text-center">
+                <img id="torch1" src="icons/lightbulb-off.svg" state="off" class="icon-sq" onclick="bulbTorch(this)">
+            </div>
+          </div>
+          <div class="row h-150">
+            <div class="col text-center">
+              <img id="torch2" src="icons/lightbulb-off.svg" state="off" class="icon-sq" onclick="bulbTorch(this)">
+            </div>
+            <div class="col text-center">
+              <img id="torch3" src="icons/lightbulb-off.svg" state="off" class="icon-sq" onclick="bulbTorch(this)">
+            </div>
+          </div>
+          <div class="row h-150">
+            <div class="col text-center">
+              <img id="torch4" src="icons/lightbulb-off.svg" state="off" class="icon-sq" onclick="bulbTorch(this)">
+            </div>
+          </div>
+          !-->
+        </div>
+<!--
+        <div class="tab-pane fade" id="tab-door" role="tabpanel" aria-labelledby="pills-door-tab" tabindex="0">
+          <div class="row h-150 py-5">
+            <div class="col text-center">
+                <img id="torch1"  src="icons/door-closed.svg" state="closed" class="icon-sq" onclick="toggleDoor(this)">
+            </div>
+            <div class="col text-center">
+                <img id="torch1"  src="icons/door-closed.svg" state="closed" class="icon-sq"  onclick="toggleDoor(this)">
+            </div>
+          </div>
+        </div>
+-->
+        <div class="tab-pane fade" id="tab-bomb" role="tabpanel" aria-labelledby="pills-bomb-tab" tabindex="0">
+          <div class="row">
+            <div class="col">
+              <table class="table table-striped my-2 p-2" id="table_bomb">
+
+              </table>
+              <div class="row p-4">
+                <div class="col text-center text-success">
+                  <button type="button" id="winBtn" class="btn btn-outline-success w-75" onclick="var winInterval = setInterval(win,300)">W I N</button>
+                </div>
+                <div class="col text-center text-light">
+                  <button type="button" class="btn btn-outline-light w-75" onclick="reset()">R E S E T</button>
+                </div>
+                <div class="col text-center text-danger">
+                  <button type="button" id="looseBtn" class="btn btn-outline-danger w-75" onclick="looseInterval = setInterval(loose,300)">G A M E O V E R</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="tab-skill" role="tabpanel" aria-labelledby="pills-skill-tab" tabindex="0">
+          <div class="row my-5 justify-content-center">
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <div class="card bg-color black  pt-3">
+                <img  class="card-img-top w-50 h-50 mx-auto pt-1" src="icons/stopwatch.svg" alt="stopWatchIcon">
+                <div class="card-body">
+                  <h5 class="card-title text-center color amber">STOP WATCH</h5>
+                  <hr>
+                  <div class="row text-center">
+                    <div class="col">
+                      <p class="color amber">Skills: <i class="color white" id="stopwatch_max_lbl">2</i></p>
+                    </div>
+                    <div class="col">
+                      <p class="color amber">Time: <i class="color white" id="stopwatch_time_lbl">30</i></p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row my-2 justify-content-center">
+                    <div class="col">
+                      <div class="input-group mx-4">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="heroActive(swIP, 1, this)" state="off">A</button>
+                        <button type="button" class="btn btn-outline-danger" name="button" onclick="heroActive(swIP, 2, this)" state="off">D</button>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="input-group mb-3">
+                      <label class="input-group-text bg-color black color white" for="">
+                        <img src="icons/hourglass-split.svg" alt="">
+                      </label>
+                      <input type="text" class="form-control text-center bg-color black color white" id="stopwatch_time_inp" placeholder="00" value="13">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-group mb-3">
+                      <label class="input-group-text bg-color black color white" for="">
+                        <img src="icons/heart-pulse.svg" alt="">
+                      </label>
+                      <input type="text" class="form-control text-center bg-color black color white" id="stopwatch_max_inp" placeholder="00" value="14">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button type="button" class="btn btn-outline-warning " onclick='skill_conf(swIP, "stopwatch")'>Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <div class="card bg-color black  pt-3">
+                <img  class="card-img-top w-50 h-50 mx-auto pt-1" src="icons/shield.svg" alt="gaurdIcon">
+                <div class="card-body">
+                  <h5 class="card-title text-center color amber">G U A R D</h5>
+                  <hr>
+                  <div class="row text-center">
+                    <div class="col">
+                      <p class="color amber">Skills: <i class="color white" id="gaurd_max_lbl">2</i></p>
+                    </div>
+                    <div class="col">
+                      <p class="color amber">Time: <i class="color white" id="gaurd_time_lbl">30</i></p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row my-2 justify-content-center">
+                    <div class="col">
+                      <div class="input-group mx-4">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="heroActive(gIP, 1, this)" state="off">A</button>
+                        <button type="button" class="btn btn-outline-danger" name="button" onclick="heroActive(gIP, 2, this)" state="off">D</button>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="input-group mb-3">
+                      <label class="input-group-text bg-color black color white" for="">
+                        <img src="icons/hourglass-split.svg" alt="">
+                      </label>
+                      <input type="text" class="form-control text-center bg-color black color white" id="gaurd_time_inp" placeholder="00" value="13">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-group mb-3">
+                      <label class="input-group-text bg-color black color white" for="">
+                        <img src="icons/heart-pulse.svg" alt="">
+                      </label>
+                      <input type="text" class="form-control text-center bg-color black color white" id="gaurd_max_inp" placeholder="00" value="14">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button type="button" class="btn btn-outline-warning " onclick='skill_conf(gIP, "gaurd")'>Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <div class="card bg-color black pt-3">
+                <img  class="card-img-top w-50 h-50 mx-auto" src="icons/dice-6.svg" alt="wiseIcon">
+                <div class="card-body">
+                  <h5 class="card-title text-center color amber">W I S E</h5>
+                  <hr>
+                  <div class="row text-center">
+                    <div class="col">
+                      <p class="color amber">Skills: <i class="color white" id="wise_max_lbl">2</i></p>
+                    </div>
+                    <div class="col">
+                      <p class="color amber">Time: <i class="color white" id="wise_time_lbl">30</i></p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row my-2 justify-content-center">
+                    <div class="col">
+                      <div class="input-group mx-4">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="heroActive(wIP, 1, this)" state="off">A</button>
+                        <button type="button" class="btn btn-outline-danger" name="button" onclick="heroActive(wIP, 2, this)" state="off">D</button>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="input-group mb-3">
+                      <label class="input-group-text bg-color black color white" for="">
+                        <img src="icons/hourglass-split.svg" alt="">
+                      </label>
+                      <input type="text" class="form-control text-center bg-color black color white" id="wise_time_inp" placeholder="00" value="13">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-group mb-3">
+                      <label class="input-group-text bg-color black color white" for="">
+                        <img src="icons/heart-pulse.svg" alt="">
+                      </label>
+                      <input type="text" class="form-control text-center bg-color black color white" id="wise_max_inp" placeholder="00" value="14">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button type="button" class="btn btn-outline-warning " onclick='skill_conf(wIP, "wise")'>Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <div class="card bg-color black  pt-3">
+                <img  class="card-img-top w-50 h-50 mx-auto pt-1" src="icons/cpu.svg" alt="tekIcon">
+                <div class="card-body">
+                  <h5 class="card-title text-center color amber">T E K</h5>
+                  <hr>
+                  <div class="row text-center">
+                    <div class="col">
+                      <p class="color amber">Skills: <i class="color white" id="tek_max_lbl">2</i></p>
+                    </div>
+                    <div class="col">
+                      <p class="color amber">Time: <i class="color white" id="tek_time_lbl">30</i></p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row my-2 justify-content-center">
+                    <div class="col">
+                      <div class="input-group mx-4">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="heroActive(rtIP, 1, this)" state="off">A</button>
+                        <button type="button" class="btn btn-outline-danger" name="button" onclick="heroActive(rtIP, 2, this)" state="off">D</button>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="input-group mb-3">
+                      <label class="input-group-text bg-color black color white" for="">
+                        <img src="icons/hourglass-split.svg" alt="">
+                      </label>
+                      <input type="text" class="form-control text-center bg-color black color white" id="tek_time_inp" placeholder="00" value="13">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-group mb-3">
+                      <label class="input-group-text bg-color black color white" for="">
+                        <img src="icons/heart-pulse.svg" alt="">
+                      </label>
+                      <input type="text" class="form-control text-center bg-color black color white" id="tek_max_inp" placeholder="00" value="14">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button type="button" class="btn btn-outline-warning " onclick='skill_conf(rtIP, "tek")'>Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <div class="card bg-color black  pt-3">
+                <img  class="card-img-top w-50 h-50 mx-auto pt-1 color" src="icons/nintendo-switch.svg" alt="switcherIcon">
+                <div class="card-body">
+                  <h5 class="card-title text-center color amber">S W I T C H </h5>
+                  <hr>
+                  <div class="row text-center">
+                    <div class="col">
+                      <p class="color amber">Skills: <i class="color white" id="sw_max_lbl">2</i></p>
+                    </div>
+                    <div class="col">
+                      <p class="color amber">Time: <i class="color white" id="sw_time_lbl">30</i></p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row my-2 justify-content-center">
+                    <div class="col">
+                      <div class="input-group mx-4">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="heroActive(swtIP, 1, this)" state="off">A</button>
+                        <button type="button" class="btn btn-outline-danger" name="button" onclick="heroActive(swtIP, 2, this)" state="off">D</button>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="input-group mb-3">
+                      <label class="input-group-text bg-color black color white" for="">
+                        <img src="icons/hourglass-split.svg" alt="">
+                      </label>
+                      <input type="text" class="form-control text-center bg-color black color white" id="sw_time_inp" placeholder="00" value="13">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-group mb-3">
+                      <label class="input-group-text bg-color black color white" for="">
+                        <img src="icons/heart-pulse.svg" alt="">
+                      </label>
+                      <input type="text" class="form-control text-center bg-color black color white" id="sw_max_inp" placeholder="00" value="14">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button type="button" class="btn btn-outline-warning " onclick='skill_conf(swtIP, "sw")'>Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <div class="card bg-color black  pt-3">
+                <img  class="card-img-top w-50 h-50 mx-auto pt-1 color" src="icons/gear.svg" alt="gearIcon">
+                <div class="card-body">
+                  <h5 class="card-title text-center color amber"> G A D J E T </h5>
+                  <hr>
+                  <div class="row text-center">
+                    <div class="col">
+                      <p class="color amber">Skills: <i class="color white" id="gj_max_lbl">2</i></p>
+                    </div>
+                    <div class="col">
+                      <p class="color amber">Time: <i class="color white" id="gj_time_lbl">30</i></p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row my-2 justify-content-center">
+                    <div class="col">
+                      <div class="input-group mx-4">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="heroActive(gjIP, 1, this)" state="off">A</button>
+                        <button type="button" class="btn btn-outline-danger" name="button" onclick="heroActive(gjIP, 2, this)" state="off">D</button>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="input-group mb-3">
+                      <label class="input-group-text bg-color black color white" for="">
+                        <img src="icons/hourglass-split.svg" alt="">
+                      </label>
+                      <input type="text" class="form-control text-center bg-color black color white" id="gj_time_inp" placeholder="00" value="13">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-group mb-3">
+                      <label class="input-group-text bg-color black color white" for="">
+                        <img src="icons/heart-pulse.svg" alt="">
+                      </label>
+                      <input type="text" class="form-control text-center bg-color black color white" id="gj_max_inp" placeholder="00" value="14">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button type="button" class="btn btn-outline-warning " onclick='skill_conf(gjIP, "gj")'>Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="tab-pane fade" id="tab-setting" role="tabpanel" aria-labelledby="pills-setting-tab" tabindex="0">
+          <div class="row">
+            <div class="col-md">
+              <div class="card bg-color black shadow my-3 color white">
+                <h3 class="card-title center-x py-4">TARDIS YEAR</h3>
+                <hr class="w-50 mx-auto">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">
+                          <img src="icons/calendar.svg" alt="">
+                        </span>
+                        <input type="text" class="form-control" placeholder="S T A R T" aria-label="Username" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="E N D" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                    </div>
+                    <div class="col-md">
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="ENERGY" aria-label="Username" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="GRAVITY" aria-label="Username" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="SPEED" aria-label="Username" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="ACCEL" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                    </div>
+                    <div class="col-md">
+                      <div class="input-group mb-3">
+                        <input type="file" class="form-control" id="inputGroupFile01">
+                      </div>
+                    </div>
+                    <div class="col-md">
+                      <div class="input-group mb-3">
+                        <div class="input-group-text">
+                          <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                        </div>
+                        <input type="text" class="form-control" placeholder="N A M E" aria-label="Text input with checkbox">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="modal" tabindex="-1" id="timerSetting">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content bg-color black">
+            <div class="modal-header">
+              <h5 class="modal-title color red">Timer Setting</h5>
+              <button type="button" class="btn-close bg-color red" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body mx-auto">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control text-center bg-color black color white mw-50" id="min_inp" placeholder="00">
+                <label class="input-group-text bg-color black color white" for="">:</label>
+                <input type="text" class="form-control text-center bg-color black color white mw-50" id="sec_inp" placeholder="00">
+              </div>
+            </div>
+            <div class="modal-footer mx-auto">
+              <button type="button" class="btn btn-outline-danger " onclick='timer_conf($("#min_inp").val(), $("#sec_inp").val())'>Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+  <script src="script.js" charset="utf-8"></script>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML><html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html {font-family: Arial; display: inline-block; text-align: center;}
+    h2 {font-size: 3.0rem;}
+    p {font-size: 3.0rem;}
+    body {max-width: 600px; margin:0px auto; padding-bottom: 25px;}
+    .switch {position: relative; display: inline-block; width: 120px; height: 68px}
+    .switch input {display: none}
+    .slider {position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; border-radius: 34px}
+    .slider:before {position: absolute; content: ""; height: 52px; width: 52px; left: 8px; bottom: 8px; background-color: #fff; -webkit-transition: .4s; transition: .4s; border-radius: 68px}
+    input:checked+.slider {background-color: #2196F3}
+    input:checked+.slider:before {-webkit-transform: translateX(52px); -ms-transform: translateX(52px); transform: translateX(52px)}
+    input {min-width: 200px;}
+    button {
+      border-radius: 6px;
+      background-color: transparent;
+      min-width: 120px;
+      min-height: 40px;
+      color: purple;
+      border-color: purple;}
+      button:hover {
+        background-color: purple;
+        color: white;
+
+      }
+      form {
+        border: 1px solid #30b325;
+        padding: 22px;
+        margin-top: 12px;
+        box-shadow: 12px 12px rgba(127, 247, 225, 0.2);
+      }
+  </style>
+</head>
+<body>
+  <h2>STOP WATCH</h2>
+  %BUTTONPLACEHOLDER%
+  <h4>SKILL: </h4><span id="skill"></span>
+  <h4>TIMER: </h4><span id="timer"></span>
+  <br />
+    <form class="">
+      <caption>S E T T I N G</caption>
+      <hr />
+        <h4>SKILL REMAINING: </h4><label id="skillRangeLabel"></label><h5>
+        <input id="skillRange"  oninput="document.getElementById('skillRangeLabel').innerHTML = this.value;" value="0" type="range" min="0" max="10" step="1">
+      </input></h5>
+      <h4>TIMER: </h4><label id="timerRangeLabel"></label><h5>
+        <span id="timer">
+          <input id="timerRange"  oninput="document.getElementById('timerRangeLabel').innerHTML = this.value;" value="0" type="range" min="0" max="60" step="1">
+        </input></span></h5>
+    <button type="button" name="button" onclick="conf()">UPDATE</button>
+    </form>
+
+
+<script>function toggleCheckbox(element) {
+  var xhr = new XMLHttpRequest();
+  if(element.checked){ xhr.open("GET", "/update?relay="+element.id+"&state=1", true); }
+  else { xhr.open("GET", "/update?relay="+element.id+"&state=0", true); }
+  xhr.send();
+}</script>
+<script>function conf() {
+  var skill = document.getElementById('skillRange').value;
+  var timer = document.getElementById('timerRange').value;
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "/update?skill="+skill+"&timer="+timer, true);
+  xhr.send();
+}</script>
+<script>
+  if (!!window.EventSource) {
+    var source = new EventSource('/events');
+
+    source.addEventListener('skill', function(e) {
+      console.log("skill: ", e.data);
+      document.getElementById("skill").innerHTML = e.data;
+     }, false);
+
+   source.addEventListener('timer', function(e) {
+      console.log("timer: ", e.data);
+      document.getElementById("timer").innerHTML = e.data;
+     }, false);
+  }
+ </script>
+</body>
+</html>

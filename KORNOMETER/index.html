@@ -1,0 +1,105 @@
+<!DOCTYPE HTML><html>
+<head>
+  <title>KORNOMETEr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="icon" href="data:,">
+  <style>
+    html {font-family: Arial; display: inline-block; text-align: center;}
+    p { font-size: 1.2rem;}
+    body {  margin: 0;height: 100%; background-color: black;}
+    .topnav { overflow: hidden; background-color: #000; color: #E11616; font-size: 1rem; }
+    .content { padding: 20px; border: 1px solid #E11616;} //#2cc12e GREEN  #2616E1 blue
+    .card { background-color: white; box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5); }
+    .cards { max-width: 900px; margin: 0 auto; display: grid; grid-gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+    .reading { font-size: 1.4rem; }
+    input {min-width: 200px;}
+    button {
+      border-radius: 6px;
+      background-color: transparent;
+      min-width: 120px;
+      min-height: 40px;
+      color: green;
+      border-color: green;}
+      button:hover {
+        background-color: green;
+        color: white;
+
+      }
+      form {
+        color:green;
+        border: 1px solid #30b325;
+        padding: 22px;
+        margin-top: 12px;
+        box-shadow: 12px 12px rgba(127, 247, 225, 0.2);
+      }
+  </style>
+</head>
+<body>
+  <div class="topnav">
+    <h1>timer</h1>
+  </div>
+  <div class="content">
+    <div class="cards">
+      <img id="segment1" src="zero.png" width="150" height="250" alt="">
+      <img id="segment2" src="zero.png" width="150" height="250" alt="">
+      <img src="dot.png" alt="">
+      <img id="segment3" src="zero.png" width="150" height="250" alt="">
+      <img id="segment4" src="zero.png" width="150" height="250" alt="">
+    </div>
+  </div>
+  <br />
+    <form class="">
+      <caption>S E T T I N G</caption>
+      <hr style="background-color:white;" />
+        <h4>minute: </h4><label id="minuteRangeLabel"></label><h5>
+        <input id="minuteRange"  oninput="document.getElementById('minuteRangeLabel').innerHTML = this.value;" value="0" type="range" min="0" max="60" step="1">
+      </input></h5>
+      <h4>second: </h4><label id="secondRangeLabel"></label><h5>
+        <span id="second">
+          <input id="secondRange"  oninput="document.getElementById('secondRangeLabel').innerHTML = this.value;" value="0" type="range" min="0" max="60" step="1">
+        </input></span></h5>
+    <button type="button" name="button" onclick="conf()">UPDATE</button>
+    <button type="button" name="button" onclick="start()">START</button>
+    <button type="button" name="button" onclick="stop()">STOP</button>
+    </form>
+<script>
+if (!!window.EventSource) {
+ var source = new EventSource('/events');
+
+ for (var i = 0; i < 4; i++) {
+   source.addEventListener('segment' + i, function(e) {
+    console.log("segment 1: ", e.data);
+    ls = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+    for (var i = 0; i < ls.length; i++) {
+      if (e.data == i) {
+        document.getElementById("segment" + i).src=ls[i] + ".png";
+        break;
+      }
+    }
+
+  }, false);
+ }
+
+}
+</script>
+<script>function conf() {
+  var minute = document.getElementById('minuteRange').value;
+  var second = document.getElementById('secondRange').value;
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "/update?minute="+minute+"&second="+second, true);
+  xhr.send();
+}</script>
+<script>function start() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "/update?start=1", true);
+  xhr.send();
+}</script>
+<script>function stop() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "/update?start=0", true);
+  xhr.send();
+}</script>
+
+</body>
+</html>

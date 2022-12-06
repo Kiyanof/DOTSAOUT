@@ -1,0 +1,9 @@
+Adform=window.Adform||{};
+Adform.host="https://track.adform.net";
+Adform.shost="https://s1.adform.net";
+Adform.scriptBase=Adform.shost+"/banners/scripts/";
+Adform.cache="626";
+Adform.ADFBannerData={"URL":"https://track.adform.net/adfserve/?CC=1&bn=54901142;rtbwp=0.048;rtbdata=oSRaJvT2ZSShY21ZidCcZCGXSxHbbbdy60x-so1RbBzZ626857OP8AOOFRU9I_pnzPtrSrtPnwi4FMmbrTvdE_ow95QKan0nZdNPt6aIhntVr1xsot3jp4iIO8NXLYgz_NnoK4GPz-wAOKe6isMOruOausjS05TeLzkFVijKEQK0LlYlARD94xNIx-35lUhatydapBjEIYeFvM6Z82c3GyQvnnCaksGD1NpSw3Q9lNaMhj1a3XmsAi_B_VjZbXcrRUaUGDyN3GEAtcu99LDqmYS4ueG9qcifiKTTHIMA65TRfyUFiowQUJ2JHfEXeZkO5hLF48185_A1_VufB5L0hRw9VplnMwdCYePjzOMbe7chdPAG6Z0hkao1zazA4z7s1SjFduDYHzDoIr_epPsMO-jC-7-aQLIykHMzBbjjA3hl8LkhDyfsyJpLTFpMuybq-8QCgx6TI7-5a8VdfOjgbn7O4vDxPM31KRv4TrtKz_wkOEgAtoP98WWhzClNjflyj-vxtI9TZdfHGYrYY1QsflTF4bZMe2-a6x2MOhg8KnQpr_rrMvif_-rHEdDC_NzcE97LkYHXLuK3tSCuIuCJJ_fu3wo0SyIsTbvpyiZidsjKvWtB8cjidPjUULoc1fjyScx_eFQe7E4iQ07x46fj0fMMtz4_0fm939Wo7gePCR3N9wl5IlrbXWg3RcCCXAJNjC64YrNwckMsrQrtpUqk-9AI7GjSZynFtkhkVdseKMarkAae1WRRkQCmV8URVuONBg4DDFve8esGSvwdYO6XvmJ2Qz5VkDq4SnnEA6pPe1Vt6G87Wna_m5-4S0TaEX4BRyWwwO9kXHzhQW6FXjSrzw2","CREFURL":"https%3a%2f%2fassets.vlitag.com%2f","BN":54901142,"READ_CONSENT":false};
+if(!Adform.ADFBannerParams)Adform.ADFBannerParams=[];
+Adform.ADFBannerParams.push(Adform.ADFBannerData);
+typeof Adform.ADFUtilInstance=="undefined"?document.write('<scr'+'ipt type="text/javascript" src="https://s1.adform.net/stoat/626/s1.adform.net/bootstrap.js"></scr'+'ipt>'):new Adform.ADFBanner();
